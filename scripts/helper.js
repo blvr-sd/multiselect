@@ -139,11 +139,13 @@ if (!m_helper)
 		select :function (element) {
 			element.selected = true;
 			element.setAttribute('selected', 'selected');
+			element.parentNode.dispatchEvent(new Event('change'));
 		},
 
 		deselect : function (element) {
 			element.selected = false;
 			element.removeAttribute('selected');
+			element.parentNode.dispatchEvent(new Event('change'));
 		},
 
 		check : function(element) {
